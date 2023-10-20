@@ -29,6 +29,10 @@
         </li>
       </template>
     </CommonCollapse>
+    <!--  -->
+    <UseIntersectionObserver></UseIntersectionObserver>
+    <!--  -->
+    <UseTransition></UseTransition>
   </div>
 </template>
 
@@ -36,12 +40,16 @@
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
 import CommonCollapse from '@/components/CommonCollapse.vue'
+import UseIntersectionObserver from '@/components/UseIntersectionObserver'
+import UseTransition from '@/components/UseTransition'
 
 export default {
   name: 'HomeView',
   components: {
     // HelloWorld,
-    CommonCollapse
+    CommonCollapse,
+    UseIntersectionObserver,
+    UseTransition
   }
 }
 </script>
