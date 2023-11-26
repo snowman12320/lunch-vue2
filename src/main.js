@@ -7,6 +7,9 @@ import router from './router'
 import store from './store'
 import * as uiv from 'uiv'
 // import { MotionPlugin } from '@vueuse/motion'
+import 'jquery'
+import 'lightbox2/dist/css/lightbox.min.css'
+import 'lightbox2/dist/js/lightbox.min.js'
 
 Vue.config.productionTip = false
 

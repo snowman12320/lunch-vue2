@@ -31,10 +31,11 @@
     <span ref="el" style="display: inline-block">useAnimate</span>
     <!-- https://developer.aliyun.com/article/1110824 -->
     <OnClickOutside @trigger="close">
-    <div>
-      Click Outside of Me
-    </div>
-  </OnClickOutside>
+      <div>Click Outside of Me</div>
+    </OnClickOutside>
+    <!-- https://vueuse.org/core/useFetch/#usefetch -->
+    {{ isFetching }} <br />
+    {{ data }}
   </div>
 </template>
 
@@ -45,7 +46,8 @@ import {
   useCounter,
   useSessionStorage,
   useToggle,
-  onClickOutside
+  onClickOutside,
+  useFetch
 } from '@vueuse/core'
 
 // import { vOnClickOutside } from '@vueuse/components' //failed
@@ -98,6 +100,14 @@ export default {
       isRed.value = !isRed.value
     }
 
+    const url = ref('https://httpbin.org/get')
+    // const { isFetching, error, data } = useFetch(url)
+    const { data, isFetching } = useFetch(url).get().json()
+    const { onFetchResponse } = useFetch(url)
+    onFetchResponse((response) => {
+      console.log(response.status)
+    })
+
     return {
       x,
       y,
@@ -106,6 +116,9 @@ export default {
       myValue,
       isRed,
       target,
+      isFetching,
+      // error,
+      data,
 
       // toggleRed,
       inc,
